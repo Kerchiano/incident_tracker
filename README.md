@@ -1,4 +1,4 @@
-Input commands in Command Prompt(cmd) Windows.
+Run Docker Desktop and input commands in Command Prompt(cmd) Windows.
 1.  Create a working directory:
     ```bash
     mkdir test-directory
