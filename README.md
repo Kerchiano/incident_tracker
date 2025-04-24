@@ -40,5 +40,14 @@ Run Docker Desktop and input commands in Command Prompt(cmd) Windows.
     ```bash
     echo. > .env
     ```
+8. Copy from .env.example to .env:
 
-8. Congratulations! Open your browser and go to [http://127.0.0.1:8000/swagger/](http://127.0.0.1:8000/swagger/) to check the API endpoints.
+    ```bash
+    copy .env.example .env
+    ```
+9. Run Docker Compose:
+
+     ```bash
+    docker-compose up
+    ```
+10. Congratulations! Open your browser and go to [http://127.0.0.1:8000/swagger/](http://127.0.0.1:8000/swagger/) to check the API endpoints.
