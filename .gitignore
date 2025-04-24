@@ -1,5 +1,6 @@
 # created by virtualenv automatically
 .venv
+venv/
 */migrations/*
 .env
 .idea/

@@ -23,3 +23,27 @@ class IncidentSerializer(serializers.ModelSerializer):
         if not -180 <= value <= 180:
             raise serializers.ValidationError("Longitude must be between -180 and 180 degrees.")
         return value
+
+
+class GeometrySerializer(serializers.Serializer):
+    type = serializers.CharField(default="Point")
+    coordinates = serializers.ListField(
+        child=serializers.FloatField(),
+        min_length=2,
+        max_length=2,
+        help_text="Format: [longitude, latitude]"
+    )
+
+class PropertiesSerializer(serializers.Serializer):
+    id = serializers.IntegerField()
+    title = serializers.CharField()
+    status = serializers.CharField()
+
+class GeoJSONFeatureSerializer(serializers.Serializer):
+    type = serializers.CharField(default="Feature")
+    geometry = GeometrySerializer()
+    properties = PropertiesSerializer()
+
+class FeatureCollectionSerializer(serializers.Serializer):
+    type = serializers.CharField(default="FeatureCollection")
+    features = GeoJSONFeatureSerializer(many=True)
